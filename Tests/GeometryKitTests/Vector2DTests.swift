@@ -5,6 +5,7 @@
 //  Created by CHI-WEI LO on 2024/12/11.
 //
 
+<<<<<<< HEAD
 // ---------------------------------------------------------
 
 // 1️⃣ 匯入 Swift Testing 模組  5️⃣
@@ -43,6 +44,27 @@ extension CGFloat: MetricSpace {
 }
 
 // ---------------------------------------------------------
+=======
+// -------------------------------------------
+
+// 1️⃣ Swift Testing 模組
+// ⭐️ Swift Playgrounds 上不適用
+import Testing
+
+
+// 2️⃣ 匯入要測試的模組
+@testable               // ⭐️ @testable
+import GeometryKit
+
+// -------------------------------------------
+
+import CoreGraphics
+
+
+
+
+// -------------------------------------------
+>>>>>>> f5b7f73 (+ `Frame` protocol, + default conforming types.)
 
 // 3️⃣ 寫要測試的東西（透過 public func）
 @Test                       // ⭐️ @Test：要測試的函數╱方法前要加這個
