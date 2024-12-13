@@ -43,6 +43,12 @@ extension CGSize: Vector2D {
 // 🌀CGRect + 🅿️ Frame
 extension CGRect: Frame { }
 
+// 🌀CGSize + 🅿️ Frame
+extension CGSize: Frame {
+    public var origin: CGPoint { .zero }
+    public var size: CGSize { self }
+}
+
 // 🌀GeometryProxy + Frame
 @available(iOS 13, macOS 10.15, *)
 extension GeometryProxy: Frame {

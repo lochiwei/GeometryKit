@@ -23,21 +23,33 @@ struct FrameTests {
     
     // test values
     let rect = CGRect(x: 1, y: 2, width: -3, height: 4)
+    
+    // testConformance
+    @Test func test_CGSizeConformsToFrame() async throws {
+        // CGSize: Frame
+        let size = CGSize(width: 3, height: 2)
+        #expect(size.origin == .zero)
+        #expect(size.size == size)
+        #expect(size.center.isAlmostEqual(to: CGPoint(3/2, 1)))
+        #expect(size[2, 1].isAlmostEqual(to: CGPoint(6, 2)))
+    }
 
-    // test Self.unitSquare
-    @Test func testStaticProperties() async throws {
+    // static properties
+    @Test func test_FrameStaticProperties() async throws {
         let unitSquare = CGRect(x: 0, y: 0, width: 1, height: 1)
         #expect(CGRect.unitSquare.isAlmostEqual(to: unitSquare))
     }
     
-    @Test func testLength() async throws {
+    // length
+    @Test func test_FrameLengths() async throws {
         #expect(rect.width == 3)
         #expect(rect.height == 4)
         #expect(rect.minSide == 3)
         #expect(rect.maxSide == 4)
     }
     
-    @Test func testXYCoords() async throws {
+    // x, y coords
+    @Test func test_FrameXYCoords() async throws {
         
         // x coords
         #expect(rect.minX == -2)
@@ -51,7 +63,8 @@ struct FrameTests {
         
     }
     
-    @Test func testCorners() async throws {
+    // corners
+    @Test func test_FrameCorners() async throws {
         
         // centers
         #expect(rect.top.isAlmostEqual(to: CGPoint(-1/2, 2)))
@@ -70,7 +83,8 @@ struct FrameTests {
         #expect(rect.corners == [rect.bottomLeft, rect.bottomRight, rect.topRight, rect.topLeft])
     }
     
-    @Test func testRelativePoints() async throws {
+    // relative points
+    @Test func test_FrameRelativePoints() async throws {
         
         let rect = CGRect(x: -2, y: 5, width: -10, height: 6)
         let p = CGPoint(1/2, 0)
@@ -84,13 +98,15 @@ struct FrameTests {
         
     }
     
-    @Test func testGeometryUtilities() async throws {
+    // geometry utilities
+    @Test func test_FrameGeometryUtilities() async throws {
         let rect = CGRect(x: 0, y: 0, width: 2, height: -3)
         #expect(rect.aspectRatio.isAlmostEqual(to: -2/3))
         
     }
     
-    @Test func testCGRectRelated() async throws {
+    // CGRect-related
+    @Test func test_FrameCGRectRelated() async throws {
         let r = CGRect(x: 5, y: 6, width: 7, height: 8)
         #expect(r.rect.isAlmostEqual(to: CGRect(x: 5, y: 6, width: 7, height: 8)))
         #expect(r.boundingSquare.isAlmostEqual(to: CGRect(x: 4.5, y: 6, width: 8, height: 8)))

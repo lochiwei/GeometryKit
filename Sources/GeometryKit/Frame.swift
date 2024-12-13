@@ -178,7 +178,10 @@ extension Frame {
     
     /// `frame.isAlmostEqual(to: other)` if their origins and sizes are almost equal.
     public func isAlmostEqual(to other: Self) -> Bool {
-        self.origin.isAlmostEqual(to: other.origin) && self.size.isAlmostEqual(to: other.size)
+        // DO NOT call `self.size.isAlmostEqual(to: other.size)` to avoid infinite loop,
+        // it's a bad idea that `isAlmostEqual()` calls `isAlmostEqual()` again.
+        self.origin.distance(to: other.origin) < 0.00001 &&
+        self.size.distance(to: other.size) < 0.00001
     }
     
 }
