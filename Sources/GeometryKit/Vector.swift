@@ -51,6 +51,8 @@ public protocol Vector: Equatable, MetricSpace {
 
 public extension Vector {
     
+    // MARK: - Vector Operations -
+    
     // 純量積：a * u
     static func * (a: Scalar, u: Self) -> Self {
         return u * a
@@ -60,6 +62,14 @@ public extension Vector {
     static func / (u: Self, a: Scalar) -> Self {
         precondition(a != 0, "⛔ Division by zero is not allowed.")
         return u * (1/a)
+    }
+    
+    // MARK: - instance methods -
+    
+    /// 線性插值 (Linear Interpolation)
+    func lerp(to v: Self, t: Scalar) -> Self {
+        let u = self
+        return u + (v - u) * t
     }
     
 }

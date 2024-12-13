@@ -4,8 +4,6 @@
 //
 //  Created by CHI-WEI LO on 2024/12/11.
 //
-
-<<<<<<< HEAD
 // ---------------------------------------------------------
 
 // 1️⃣ 匯入 Swift Testing 模組  5️⃣
@@ -19,32 +17,7 @@ import GeometryKit
 
 import CoreGraphics
 
-// CGPoint + Vector2D
-extension CGPoint: Vector2D {
-    public typealias Scalar = CGFloat
-}
 
-// CGSize + Vector2D
-extension CGSize: Vector2D {
-    
-    public typealias Scalar = CGFloat
-    
-    public var x: CGFloat { width }
-    public var y: CGFloat { height }
-    
-    public init(x: CGFloat, y: CGFloat) {
-        self.init(width: x, height: y)
-    }
-    
-}
-
-// CGFloat + MetricSpace
-extension CGFloat: MetricSpace {
-    public typealias Scalar = CGFloat
-}
-
-// ---------------------------------------------------------
-=======
 // -------------------------------------------
 
 // 1️⃣ Swift Testing 模組
@@ -60,17 +33,6 @@ import GeometryKit
 
 import CoreGraphics
 
-
-
-
-// -------------------------------------------
->>>>>>> f5b7f73 (+ `Frame` protocol, + default conforming types.)
-
-// 3️⃣ 寫要測試的東西（透過 public func）
-@Test                       // ⭐️ @Test：要測試的函數╱方法前要加這個
-func testSomething() async throws {
-    // use APIs like `#expect(...)` to check expected conditions.
-}
 
 // 3️⃣ 透過 struct 包裝要測試的東西（比較不會產生名稱衝突）
 struct Vector2DTests {
