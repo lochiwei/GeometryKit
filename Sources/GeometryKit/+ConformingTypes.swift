@@ -15,7 +15,7 @@ import SwiftUI
 // MARK: - 1D Types -
 
 // CGFloat + MetricSpace
-extension CGFloat: MetricSpace {
+extension CGFloat: Vector {
     public typealias Scalar = CGFloat
     // CGFloat has its own .distance(to:) method:
     // https://developer.apple.com/documentation/corefoundation/cgfloat/1645824-distance

@@ -31,8 +31,14 @@ struct VectorTests {
         let v = CGPoint(3, 4)
         let t = CGFloat(-2)
         
-        // linear interpolation
+        // linear interpolation (2D)
         #expect(u.lerp(to: v, t: t).isAlmostEqual(to: CGPoint(-3, -2)))
+        
+        let a: CGFloat = 1
+        let b: CGFloat = 3
+        
+        // linear interpolation (1D)
+        #expect(a.lerp(to: b, t: t).isAlmostEqual(to: -3))
     }
 
 }
